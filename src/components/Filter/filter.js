@@ -1,21 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from 'redux/filterSlice';
 
-export function Filter({ changeFilter }) {
+export function Filter() {
+  const dispath = useDispatch();
+
   return (
     <>
       <label>
         Find contacts by name
         <input
           onChange={e => {
-            changeFilter(e.target.value.trim());
+            changeFilter(dispath(changeFilter(e.target.value.trim())));
           }}
         ></input>
       </label>
     </>
   );
 }
-
-Filter.propTypes = {
-  changeFilter: PropTypes.func.isRequired,
-};
