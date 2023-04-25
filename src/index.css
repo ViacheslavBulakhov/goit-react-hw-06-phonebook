@@ -7,7 +7,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-left: 20px;
+  height: 100vh;
+  background: linear-gradient(45deg, rgba(145,232,66,0.19) 0%, rgba(160,237,70,0.19) 20%, rgba(210,255,82,0.85) 85%, rgba(210,255,82,1) 100%);
 }
+input:hover,
+input:focus{
+  box-shadow: 0px 0px 21px 2px rgba(0,255,13,1);}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
