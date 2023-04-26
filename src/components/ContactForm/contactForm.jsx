@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addNewContact } from 'redux/contactSlice';
 
 import { RegisterForm, Label, Error } from './contactFrom.styled';
+import { selectContacts } from 'redux/selectors';
 
 const validationSchema = Yup.object({
   name: Yup.string()
@@ -29,7 +30,7 @@ const initialValues = {
 };
 
 export function ContactForm() {
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContacts);
   const dispath = useDispatch();
 
   const addContact = contact => {

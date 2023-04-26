@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeContact } from 'redux/contactSlice';
 
 import { ContactElement } from './contacts.styled';
+import { selectContacts, selectFilter } from 'redux/selectors';
 
 export function ContactList() {
   const dispath = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.filter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   const getFilteredContacts = contacts.filter(({ name }) =>
     name.toLowerCase().includes(filter.toLowerCase())

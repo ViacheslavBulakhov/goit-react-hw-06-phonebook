@@ -12,16 +12,15 @@ export const contactsSlice = createSlice({
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
   },
+
   reducers: {
     addNewContact(state, { payload }) {
-      const prevState = JSON.parse(JSON.stringify(state)).items;
-      return { items: [payload, ...prevState] };
+      return { items: [payload, ...state.items] };
     },
 
     removeContact(state, { payload }) {
-      const prevState = JSON.parse(JSON.stringify(state)).items;
       return {
-        items: prevState.filter(contact => contact.id !== payload),
+        items: state.items.filter(contact => contact.id !== payload),
       };
     },
   },
